@@ -1,7 +1,13 @@
 CREATE DATABASE joyas;
 \c joyas;
-CREATE TABLE inventario (id SERIAL, nombre VARCHAR(50), categoria
-VARCHAR(50), metal VARCHAR(50), precio INT, stock INT);
+CREATE TABLE inventario (
+    id SERIAL, 
+    nombre VARCHAR(50), 
+    categoria VARCHAR(50), 
+    metal VARCHAR(50), 
+    precio INT,
+    stock INT);
+
 INSERT INTO inventario values
 (DEFAULT, 'Collar Heart', 'collar', 'oro', 20000 , 2),
 (DEFAULT, 'Collar History', 'collar', 'plata', 15000 , 5),
