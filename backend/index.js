@@ -23,7 +23,19 @@ app.get('/inventario', async (req, res) => {
         console.log(error);
         return res.status(500).json({ message: "Error interno en la ruta GET"})
     }
-})
+});
+
+app.get('/inventario/filtros', async (req, res) => {
+    const queryStrings = req.query;
+    try {
+        const joyas = await inventarioJoyas.joyasConFiltros(queryStrings);
+        return res.json(joyas)
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Error interno en la ruta GET con filtros"})
+    }
+    
+});
 
 app.use((req, res) => {
     res.status(404).send("Esta ruta no existe.")
